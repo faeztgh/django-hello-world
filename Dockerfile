@@ -15,11 +15,8 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy the entire project into the container.
 COPY . /app/
 
-# Make the entrypoint script executable.
-RUN chmod +x /app/entrypoint.sh
-
-# Expose the port that Dokploy will assign (using the $PORT environment variable).
+# Expose the port that Dokploy provides (using the $PORT environment variable).
 EXPOSE 8000
 
-# Run the entrypoint script.
-CMD ["/app/entrypoint.sh"]
+# Start the application using gunicorn.
+CMD ["gunicorn", "myproject.wsgi:application", "--bind", "0.0.0.0:$PORT"]
