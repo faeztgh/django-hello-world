@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-9-0c*iuj*k&%*_if1w!)gam3l!@au79n4hi5w&771q125+aja@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'api.faran.pro'
+]
 
 
 # Application definition
